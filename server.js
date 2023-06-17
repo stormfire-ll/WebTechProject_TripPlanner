@@ -1,24 +1,18 @@
-const http = require('http') 
-const fs = require('fs')    //library for file handling
-const port = 3000
+const express = require('express');
+const app = express();
+const patha = require('path');
+const mime = require('mime');
 
-const server = http.createServer(function(req, res){
-    res.writeHead(200, { 'Content-type': 'text/html' })
-    fs.readFile('index.html', function(error, data){
-        if (error) {
-            res.writeHead(404)
-            res.write('Error: File Not Found')
-        } else {
-            res.write(data)
-        }
-        res.end()
-    }) 
-})
 
-server.listen(port, function(error) { //function called if error: pass error or nothing if successful
-    if (error) {
-        console.log('Something went wrong', error) //!no log
-    } else {
-        console.log('Server is listening on port' + port)
-    }
-})
+// Serve static files from the "public" directory
+app.use(express.static(patha.join(__dirname, '/public')));
+
+// Other routes and middleware
+app.get("/", (req, res) => {
+   res.sendFile("./index.html", {root: __dirname});
+});
+
+// Start the server
+app.listen(3000, () => {
+    console.log('Server is running on port 3000');
+});
