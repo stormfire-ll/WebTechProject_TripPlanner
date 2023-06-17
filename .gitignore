@@ -1,1 +1,30 @@
-node_modules
+# Logs
+logs
+*.log
+
+# Dependency directories
+node_modules/
+
+# Environment variables
+.env
+
+# Build output
+build/
+dist/
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Test coverage output
+coverage/
+
+# Miscellaneous
+*.bak
+*.tmp
