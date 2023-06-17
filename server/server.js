@@ -1,40 +1,42 @@
-const express = require('express')
-const path = require('path')
-const http = require('http') 
-const fs = require('fs')    //library for file handling
-
+const express = require('express');
 const app = express();
-const port = 3000
+const path = require('path');
+const session = require('express-session');
 
-app.use(express.static(path.join(__dirname, 'files')))
+// Serve static views from the "public" directory
+app.use(express.static(path.join(__dirname, '/public')));
+app.use(
+    session({
+       secret: 'some key',
+       resave: false,
+       saveUninitialized: false
+    })
+);
+app.set('views', path.join(__dirname, '/public/views' ));
+app.set('view engine', 'ejs');
 
-//Server setup
-const server = http.createServer(function(req, res){
-    res.writeHead(200, { 'Content-type': 'text/html' })
-    fs.readFile('index.html', function(error, data){
-        if (error) {
-            res.writeHead(404)
-            res.write('Error: File Not Found')
-        } else {
-            res.write(data)
-        }
-        res.end()
-    }) 
+// Other routes and middleware
+app.get("/", (req, res) => {
+   res.render('index');
+});
+
+app.get("/login", (req, res) => {
+   res.render('login');
+});
+
+app.post('/login', async (req, res) => {
+   res.render('dashboard');
 })
 
-//Endpoints: User Authentication
-app.get('/register', (req, res) => { 
-    res.render('register.html')
+app.get("/signup", (req, res) => {
+   res.render('signup');
+});
+
+app.post('/signup', async (req, res) => {
+   res.render('login');
 })
 
-app.get('/login'), (req, res) => {
-    res.render('login.html')
-}
+// Start the server
+app.listen(3000);
+console.log('Server is running on http://localhost:3000');
 
-server.listen(port, function(error) { //function called if error: pass error or nothing if successful
-    if (error) {
-        console.log('Listening on port' + port + 'failed.', error) //!no log
-    } else {
-        console.log('Server is listening on port' + port)
-    }
-})

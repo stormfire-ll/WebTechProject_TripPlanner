@@ -8,7 +8,7 @@
     height: 100vh;
     background-image: linear-gradient(rgba(0,0,0,0.75),
      rgba(0,0,0,0.75)),
-    url(backgroundMaybe.jpg);
+    url(../graphics/backgroundMaybe.jpg);
     background-size: cover;
     background-position: center;
 }
@@ -94,6 +94,6 @@ button:hover span{
     width: 100%;
 
 }
-button:hover{
-    border: none;
+button:hover{ !important;
+    border: none; !important;
 }
