@@ -3,39 +3,44 @@
     padding: 0;
     font-family: sans-serif;
 }
-.banner{
+.header{
+    min-height: 100vh;
     width: 100%;
-    height: 100vh;
     background-image: linear-gradient(rgba(0,0,0,0.75),
-     rgba(0,0,0,0.75)),
-    url(backgroundMaybe.jpg);
-    background-size: cover;
-    background-position: center;
+    rgba(0,0,0,0.75)),
+   url(backgroundMaybe.jpg);
+   background-size: cover;
+   background-position: center;
+   position: relative;
 }
-.navbar{
-    width: 85%;
-    margin: auto;
-    padding: 35px 0;
+nav{
     display: flex;
-    align-items: center;
+    padding: 35px 0;
     justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    width: 85%;
 }
-.logo{
+nav img{
     width: 120px;
     cursor: pointer;
 }
-.navbar ul li{
-list-style: none;
-display: inline-block;
-margin: 0 20px;
-position: relative;
+.nav-links{
+    flex: 1;
+    text-align: right;
 }
-.navbar ul li a{
+.nav-links ul li{
+        list-style: none;
+        display: inline-block;
+        margin: 0 20px;
+        position: relative;
+}
+.nav-links ul li a{
     text-decoration: none;
     color: #fff;
     text-transform: uppercase;
 }
-.navbar ul li::after{
+.nav-links ul li::after{
     content: '';
     height: 3px;
     width: 0;
@@ -45,25 +50,24 @@ position: relative;
     bottom: -10px;
     transition: 0.5s;
 }
-.navbar ul li:hover::after{
+.nav-links ul li:hover::after{
     width: 100%;
 }
-.content{
-    width: 100%;
+.text-box{
+    width: 90%;
+    color: #fff;
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
-    color: #fff;
 }
-.content h1{
-    font-size: 40px;
-    margin-top: 80px;
+.text-box p{
+    font-size: 28px;
+    margin: 10px 0 80px;
 }
-.content p{
-    margin: 20px auto;
-    font-weight: 100;
-    line-height: 25px;
+.text-box a{
+    font-size: 12px;
 }
 button{
     width: 200px;
@@ -97,24 +101,21 @@ button:hover span{
 button:hover{
     border: none;
 }
-@media(max-width: 700px){
-.content h1{
-    font-size: 12px;
-}
-.content p{
-    font-size: 8px;
+
+@media(max-width: 700ßx) {
+    .text-box p{
+        font-size: 20px;
+    }
     .nav-links ul li{
         display: block;
     }
-    .navbar ul li{
+    .nav-links{
         position: absolute;
-        background-color: #539fe3;
+        background: #539fe3;
         height: 100vh;
         width: 200px;
         top: 0;
         right: 0;
-        text-align: left;
-        z-index: 2;
+
     }
-}
 }
