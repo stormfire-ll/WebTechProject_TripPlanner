@@ -8,7 +8,7 @@
     height: 100vh;
     background-image: linear-gradient(rgba(0,0,0,0.75),
      rgba(0,0,0,0.75)),
-    url(../graphics/backgroundMaybe.jpg);
+    url(backgroundMaybe.jpg);
     background-size: cover;
     background-position: center;
 }
@@ -56,7 +56,7 @@ position: relative;
     text-align: center;
     color: #fff;
 }
-.content h1{
+.content h2{
     font-size: 40px;
     margin-top: 80px;
 }
@@ -94,8 +94,8 @@ button:hover span{
     width: 100%;
 
 }
-button:hover{ !important;
-    border: none; !important;
+button:hover{
+    border: none;
 }
 @media(max-width: 700px){
 .content h1{
