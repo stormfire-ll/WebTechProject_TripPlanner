@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Currency converter with HTML &amp; JavaScript</title>
+</head>
+<body>
+  <form>
+    <label for="amount">Convert Euro (EUR)</label>
+    <input id="amount" type="number" value="1" />
+    <select id="primary" class="input"></select>
+    <select id="secondary" class="input"></select>   
+    <input id="btn-convert" type="button" value="Convert" />   
+  </form>
+  <p>Converted Currency:</p>
+  <p id="result" style="display:none;">
+    <span id="txt-primary"></span>
+    <span id="txt-secondary"></span>
+  </p>
+  <script src="../javascript/currencyconverter.js"></script>
+</body>
+
+</html>
