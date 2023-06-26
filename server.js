@@ -43,7 +43,7 @@ app.post('/signup', async (req, res) => {
 })
 
 //WeatherAPI: 1. weather.ejs
-app.get("/weather?city=", async (req, res) => { //URL
+app.get("/weather", async (req, res) => {
    
    const weatherAPIKey = "17dc0ef21a4041da85d6fa0e6119fe49";
    const city = req.query.city;     // query parameter to get city
