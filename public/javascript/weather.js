@@ -33,3 +33,6 @@ function updateWeather() {
             console.log(error);
         })
 }
+window.onload = function () {
+    document.getElementById("button").addEventListener("click", () => updateWeather());
+  };
