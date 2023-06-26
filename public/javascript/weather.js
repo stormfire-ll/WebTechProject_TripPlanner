@@ -3,8 +3,9 @@ function updateWeather() {
     const city = document.getElementById("query").value;
 
     fetch("/weather?city=" + city)
-        .then(response => response.json())
-        .then(response => {
+        //.then(response => response.json())
+        .then(async response => {
+            const test = await response.json()
             // let city = document.querySelector(".weather_city");
             // let day =  document.querySelector(".weather_day");
             // let humidity = document.querySelector(".weather_indicator--humidity>.value");
@@ -18,6 +19,10 @@ function updateWeather() {
             let temperature = document.getElementById("temperature");
 
             console.log(response)
+            console.log(test["temperature"])
+            console.log(city, wind)
+            console.log(response["city"])
+
             city.innerHTML = response.city;
             day.innerHTML = response.day;
             humidity.innerHTML = response.humidity;
