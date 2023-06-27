@@ -80,7 +80,7 @@ app.post('/signup', async (req, res) => {
     const hashedPwd = await bcrypt.hash(password, 12);
 
     user = new User(username, email, hashedPwd);
-    await User.addUser(user);
+    await User.addUser(user); // Here the user gets saved to "database" (public/data/users.json)
     res.redirect('/login');
 })
 
