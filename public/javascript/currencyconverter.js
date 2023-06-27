@@ -1,34 +1,33 @@
 function convertCurrency() {
-    //console.log("convertCurrency()")
-    let userInput = document.getElementById("amount").value;
-    let selectedItem = document.getElementById("select").value;
-    //console.log("selectedItem", "input");
+    console.log("convertCurrency()")
 
     fetch("/currencyconverter")
-    .then(async response => await response.json()) //parse JSONString -> JSObject
-    .then( response => {
-
+    .then(async response => {
+        const test = await response.json()
+        const data = JSON.parse(test)
         let primaryCurrency = document.getElementById("select");
-        primaryCurrency.innerHTML = getSelectboxOptions(currencies);
-        console.log(response)
+        primaryCurrency.innerHTML = getSelectboxOptions(data);
 
-        function getSelectboxOptions(data) {
+        console.log(response) 
+        console.log(data);
+
+        function getSelectboxOptions(data) {    //fill selectboxOptions
             return Object.entries(data) //array of object's own enumerable string-keyed property values
               .map(([country, currency]) => `<option value="${country}">${country} | ${currency}</option>`)
               .join("");
         }
-        displayCurrency(data, userInput, selectedItem)
-    })
+    }) 
     .catch(error => {   
         console.log(error); 
     }) 
 }
 
-function displayCurrency(data, userInput, selectedItem) {
-    let userInput = document.getElementById("amount").value;
-    let selectedItem = document.getElementById("select").value;
+function displayCurrency(data) {
+    let userInput = document.getElementById("amount").value;    //get amount
+    //console.log(userInput);
+    let selectedItem = document.getElementById("select").value; //select selectboxItem
 
-    const calculated = amount * data.conversion_rates[selectedItem];
+    let calculated = userInput * data.conversion_rates[selectedItem];
 
     document.getElementById("result").setAttribute("style", "display:block");
     document.getElementById("txt-primary").innerText = amount + " " + primary + " = ";
