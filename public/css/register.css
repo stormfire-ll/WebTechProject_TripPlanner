@@ -8,7 +8,7 @@
     height: 100vh;
     background-image: linear-gradient(rgba(0,0,0,0.75),
      rgba(0,0,0,0.75)),
-    url(backgroundMaybe.jpg);
+    url(../graphics/backgroundMaybe.jpg);
     background-size: cover;
     background-position: center;
 }
@@ -102,7 +102,7 @@ button:hover{
     font-size: 12px;
 }
 .content p{
-    font-size: 8px;
+    font-size: 8px;}
     .nav-links ul li{
         display: block;
     }
@@ -116,5 +116,4 @@ button:hover{
         text-align: left;
         z-index: 2;
     }
-}
 }

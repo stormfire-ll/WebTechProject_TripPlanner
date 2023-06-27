@@ -1,21 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>login page</title>
+    <meta name="viewport" content="width= device-width, initial-scale=1.0">
+    <title>Trip Planner</title>
+    <link rel="stylesheet" href="../css/login.css">
 </head>
+
 <body>
-    <div class="container">
-        <form action="/login" method="POST">
-            <div class="input-group">
-                <label for="email">E-mail:<input type="email" name="email"></label>
-            </div>
-            <div class="input-group">
-                <label for="password">Password:<input type="password" name="password"></label>
-            </div>
-            <button>Log in</button>
-        </form>
-        <a href="/signup">Don't have an account? Sign up</a>
+<div class="banner">
+    <div class="navbar">
+        <img src="../graphics/TripPlannerLogosmall.png" alt="TripPlannerLogo" class="logo">
+        <ul>
+            <li><a href='index.ejs'>Home</a></li>
+            <li><a href="#">Impressum</a></li>
+        </ul>
     </div>
+    <div class="loginbox">
+        <img src="../graphics/login.png" class="loginPic" alt="Login image">
+        <h1>Login here</h1>
+        <form action="/login" method="POST">
+            <p>Username</p>
+            <input type="text" name="" placeholder="Enter Username">
+            <p>Password</p>
+            <input type="password" name="" placeholder="Enter Password">
+            <input type="submit" name="" value="Login"><br>
+
+            <a href="signup.ejs">Register here</a>
+        </form>
+    </div>
+</div>
 </body>
+
 </html>
