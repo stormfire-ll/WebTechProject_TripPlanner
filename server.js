@@ -47,15 +47,24 @@ app.get("/", (req, res) => {
     res.render('index');
 });
 
+// //Dashboard
+// app.get("/dashboard", isAuth, (req, res) => {
+//    res.render('dashboard');
+// })
 //Dashboard
-app.get('/dashboard', isAuth, (req, res) => {
-   res.render('dashboard');
-})
+app.get("/dashboard", (req, res) => {
+    res.render('dashboard');
+ })
 
 //Login
 app.get("/login", (req, res) => {
    res.render('login');
 });
+
+//Success
+app.get("/success", (req, res) => {
+    res.render('success');
+ });
 
 app.post('/login', async (req, res) => {
    const {email, password} = req.body;
