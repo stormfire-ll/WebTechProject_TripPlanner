@@ -9,30 +9,33 @@
 </head>
 
 <body>
-<div class="banner">
+    <div class="banner">
     <div class="navbar">
         <img src="../graphics/TripPlannerLogosmall.png" alt="TripPlannerLogo" class="logo">
         <ul>
-            <li><a href='index.ejs'>Home</a></li>
+            <li><a href='/index'>Home</a></li>
             <li><a href="#">Impressum</a></li>
         </ul>
     </div>
     <div class="loginbox">
-        <img src="../graphics/login.png" class="loginPic" alt="Login image">
+        <img src="../graphics/login.png" class="loginPic">
         <h1>Login here</h1>
         <form action="/login" method="POST">
             <p>Username</p>
             <input type="text" name="" placeholder="Enter Username">
             <p>Password</p>
             <input type="password" name="" placeholder="Enter Password">
-            <input type="submit" name="" value="Login" onclick="location.href='dashboard.ejs';"><br>
-
+            <input type="submit" name="" value="Login" onclick="location.href='dashboard.ejs';" onclick="window.location.href = 'dashboard.ejs';"><br>
+    
         <form action="/signup.ejs">
-            <a href="/signup.ejs">Register here</a>
+            <a href="/#">Forgot your password?</a><br>
+        </form>
+        <form action="/signup">
+            <a href="/signup">Sign up here</a>
         </form>
         </form>
     </div>
-</div>
+
 </body>
 
 </html>

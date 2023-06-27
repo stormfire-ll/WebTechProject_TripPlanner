@@ -94,6 +94,6 @@ button:hover span{
     width: 100%;
 
 }
-button:hover{ !important;
-    border: none; !important;
+button:hover{
+    border: none;
 }
