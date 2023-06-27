@@ -5,25 +5,8 @@ const path = require('path');
 const session = require('express-session');
 const User = require('./models/User');
 const bcrypt = require('bcryptjs');
-const fs = require("fs");
-const JsonStore = require('express-session-json')(session);
-class CustomJsonStore extends JsonStore {
-    constructor(options) {
-        super(options);
-        this.initializeJsonFile();
-    }
+const FileStore = require('session-file-store')(session);
 
-    initializeJsonFile() {
-        try {
-            const jsonData = fs.readFileSync(this.options.filename, 'utf8');
-            if (jsonData.trim() === '') {
-                fs.writeFileSync(this.options.filename, '{}');
-            }
-        } catch (err) {
-            fs.writeFileSync(this.options.filename, '{}');
-        }
-    }
-}
 
 // Serve static views from the "public" directory
 app.use(express.static(path.join(__dirname, '/public')));
@@ -34,10 +17,10 @@ app.use(
        secret: 'some key',
        resave: false,
        saveUninitialized: false,
-       store: new CustomJsonStore({
-           filename: 'userdata.json',
+       store: new FileStore({
            path: './public/data/',
-       }),
+           encrypt: true,
+        }),
     })
 );
 app.set('views', path.join(__dirname, '/public/views' ));
