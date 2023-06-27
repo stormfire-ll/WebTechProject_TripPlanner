@@ -32,6 +32,7 @@ app.set('views', path.join(__dirname, '/public/views' ));
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 
+//? Path correct
 const isAuth = (req, res, next) => {
     if (req.session.isAuth) {
         next();
@@ -47,21 +48,22 @@ app.get("/", (req, res) => {
     res.render('index');
 });
 
+//? Path correct? Dashboard
+app.get("/dashboard", isAuth, (req, res) => {
+   res.render('dashboard');
+})
+
 // //Dashboard
-// app.get("/dashboard", isAuth, (req, res) => {
-//    res.render('dashboard');
-// })
-//Dashboard
-app.get("/dashboard", (req, res) => {
-    res.render('dashboard');
- })
+// app.get("/dashboard", (req, res) => {
+//     res.render('dashboard');
+//  })
 
 //Login
 app.get("/login", (req, res) => {
    res.render('login');
 });
 
-//Success
+//Success   added
 app.get("/success", (req, res) => {
     res.render('success');
  });

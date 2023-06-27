@@ -25,9 +25,11 @@
             <input type="text" name="" placeholder="Enter Username">
             <p>Password</p>
             <input type="password" name="" placeholder="Enter Password">
-            <input type="submit" name="" value="Login" onclick="windows.location.href='dashboard.ejs'"><br>
+            <input type="submit" name="" value="Login" onclick="location.href='dashboard.ejs';"><br>
 
-            <a href="signup.ejs">Register here</a>
+        <form action="/signup.ejs">
+            <a href="/signup.ejs">Register here</a>
+        </form>
         </form>
     </div>
 </div>
