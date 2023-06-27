@@ -20,9 +20,13 @@
         <div class="container">
            <div class="left-box" >
              <h3>Your destinations</h3><br>
-               <button class="edit-button">Edit</button>
-               <button class="add-button">Add Trip</button>
-                 <ul class="city-list">
+             
+                <div class="search">
+                   <input type="text" placeholder="Enter city name"
+                   spellcheck="false">
+                   <button class="add-button">Add Trip</button>
+                </div>
+                  <ul class="city-list">
                   <li class="city"> Lima </li> <br>
                   <li class="city"> Lisbon </li> <br>
                   <li class="city"> Barcelona </li>  <br>
@@ -33,21 +37,23 @@
                     <input type="radio" id="tabBookings" name="mytabs" checked="checked">
                     <label for="tabBookings">Bookings</label>
                     <div class="tab">
-                      <h2>Booking</h2>
+                      <h2></h2>
                       <iframe id="myPdf" src="../graphics/barcelonaBooking.pdf" frameborder="0"></iframe>
                       </div>
                 
                     <input type="radio" id="tabWeather" name="mytabs">
-                    <label for="tabWeather">Silver</label>
+                    <label for="tabWeather">Weather</label>
                     <div class="tab">
                       <h2>Weather</h2>
-                      
+                      <div class="Weather">
+                        <img src=""
+                      </div>
                     </div>
                 
                     <input type="radio" id="tabCurrency" name="mytabs">
                     <label for="tabCurrency">Currency</label>
                     <div class="tab">
-                      <h2>Weather</h2>
+                      <h2>Currency</h2>
                       </div>
                 
                   </div>
@@ -55,6 +61,7 @@
             </div>
     </div>
 </div>
+<script src="/server.js" type="module"></script>
 </body>
 
 </html>
