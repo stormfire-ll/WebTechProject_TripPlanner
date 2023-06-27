@@ -30,7 +30,7 @@ app.get("/login", (req, res) => {
 });
 
 app.post('/login', async (req, res) => {
-   res.render('dashboard');
+   await res.render('dashboard');
 })
 
 app.get("/signup", (req, res) => {
@@ -41,7 +41,7 @@ app.post('/signup', async (req, res) => {
    res.render('login');
 })
 
-//weather endpoint fetches Weater API data: weather.js
+//Weather endpoint fetches Weater API data: weather.js
 app.get("/weather", async (req, res) => {
    
    const weatherAPIKey = "6ff36079724c0020a2809278b13da9ac";
@@ -49,56 +49,57 @@ app.get("/weather", async (req, res) => {
    
    axios.get("https://api.openweathermap.org/data/2.5/weather?units=metric&appid=" + weatherAPIKey + "&q=" + city)
       .then(result =>{   
-         let filteredData = {
+         let filteredweatherData = {
             "temperature": result.data.main.temp,
             "wind": result.data.wind.speed,
             "city": result.data.name,
             "day": new Date().toLocaleDateString('en-EN', {"weekday": "long"}),
-            "humidity": result.data.main.humidity,
+            "humidity": result.data.main.humidity
          };         
-         res.json(JSON.stringify(filteredData))
+         res.json(JSON.stringify(filteredweatherData))
          console.log(result.data);
       })
-      .catch(error => {
-            console.log(error);
-      });
+      .catch((error) => console.error("Fetch weather API data error:", error));
+      // .catch(error => {
+      //       console.log(error);
+      // });
 });
 
-// //currency endpoint fetches currency API data: currencyconvert.js
-// app.get("/currencyconverter", async (req, res) => {
-//    const currencyAPIKey = "5f5403539aa12de9ad707096ee0601c8";
-   
-// const availableCurrencies = axios.get("http://data.fixer.io/api/symbols?access_key=" + currencyAPIKey)
-//    .then(result =>{   
-      
-//       const movies = JSON.parse(data); //String -> JavaScript object
-//       let allCurrencies = {
+//CurrencyConverter endpoint fetches currency API data: currencyconvert.js
+app.get("/currencyconverter", async (req, res) => {
+   const currencyConverterAPIKey = "5f5403539aa12de9ad707096ee0601c8";
+    
+   axios.get("http://data.fixer.io/api/latest?access_key=" + currencyConverterAPIKey)
+      .then(result =>{   
+         let filteredCurrencyData = {
+            "date": result.data.date,
+            "rates": result.data.rates
+         };         
+         res.json(JSON.stringify(filteredCurrencyData))
+         console.log(result.data);
+         console.log(filteredCurrencyData);
+      })
+      .catch((error) => console.error("Fetch currency API data error:", error));
+      // .catch(error => {
+      //       console.log(error);
+      // });
 
-//       };         
-//       res.json(JSON.stringify(allCurrencies))
-//       console.log(result.data);
-//    })
-//    .catch(error => {
-//          console.log(error);
-//    });
-   
-//    const requestedCurrency = axios.get("http://data.fixer.io/api/latest?access_key=" + currencyAPIKey)
-//       .then(result =>{   
-//          let filteredData = {
-//             "temperature": result.data.main.temp,
-//             "wind": result.data.wind.speed,
-//             "city": result.data.name,
-//             "day": new Date().toLocaleDateString('en-EN', {"weekday": "long"}),
-//             "humidity": result.data.main.humidity,
-//          };         
-//          res.json(JSON.stringify(filteredData))
-//          console.log(result.data);
-//       })
-//       .catch(error => {
-//             console.log(error);
-//       });
-//    //res.render('currencyconverter.html');
-// });
+   //res.render('currencyconverter.html');
+   // Get Symbols:
+   // const availableCurrencies = axios.get("http://data.fixer.io/api/symbols?access_key=" + currencyAPIKey)
+   // .then(result =>{   
+      
+   //    const movies = JSON.parse(data); //String -> JavaScript object
+   //    let allCurrencies = {
+
+   //    };         
+   //    res.json(JSON.stringify(allCurrencies))
+   //    console.log(result.data);
+   // })
+   // .catch(error => {
+   //       console.log(error);
+   // });
+});
 
 
 
