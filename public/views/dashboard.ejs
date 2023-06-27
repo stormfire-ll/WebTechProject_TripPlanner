@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= device-width, initial-scale=1.0">
+    <title>Trip Planner</title>
+    <link rel="stylesheet" href="../css/mainPage.css">
+</head>
+
+<body>
+    <div class="banner">
+        <div class="navbar">
+            <img src="../graphics/TripPlannerLogosmall.png" alt="TripPlannerLogo" class="logo">
+             <ul>
+                 <li><a href='../views/index.ejs'>Home</a></li>
+                 <li><a href="#">Impressum</a></li>
+             </ul>
+        </div>
+        <div class="container">
+           <div class="left-box" >
+             <h3>Your destinations</h3><br>
+               <button class="edit-button">Edit</button>
+               <button class="add-button">Add Trip</button>
+                 <ul class="city-list">
+                  <li class="city"> Lima </li> <br>
+                  <li class="city"> Lisbon </li> <br>
+                  <li class="city"> Barcelona </li>  <br>
+                 </ul>
+            </div>
+            <div class="right-box">
+                <div class="tabs">
+                    <button class="tab-button active" data-tab="bookings">Bookings</button>
+                    <button class="tab-button" data-tab="weather">Weather</button>
+                    <button class="tab-button " data-tab="currency">Currency</button>
+                </div>
+                <div class="tab-content" id="bookings">
+                    <iframe id="myPdf" src="../graphics/barcelonaBooking.pdf" frameborder="0"></iframe>
+
+                </div>
+            
+            </div>
+    </div>
+</div>
+</body>
+
+</html>

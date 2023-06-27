@@ -17,7 +17,7 @@
             <li><a href="#">Impressum</a></li>
         </ul>
     </div>
-    <div class="registerbox">
+    <div class="register-box">
         <img src="../graphics/login.png" class="loginPic">
         <h1>Sign up here</h1>
         <form action="/signup" method="POST">
@@ -31,37 +31,12 @@
             <input type="submit" name="" value="Create Account" onclick="window.location.href = 'dashboard.ejs';"><br>
 
         </form>
+           <form action="/login">
             <a href="login.ejs">Login here</a>
+           </form>
     
     </div>
 
 </body>
 
-</html>
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Trip Planner</title>
-</head>
-<body>
-<div class="container">
-    <form action="/signup" method="POST">
-        <div class="input-group">
-            <label for="text">Username:<input type="text" name="username"></label>
-        </div>
-        <div class="input-group">
-            <label for="email">E-mail:<input type="email" name="email"></label>
-        </div>
-        <div class="input-group">
-            <label for="password">Password:<input type="password" name="password"></label>
-        </div>
-        <button>Sign up</button>
-    </form>
-    <a href="/login">Already have and account? Sign in</a>
-</div>
-</body>
 </html>
