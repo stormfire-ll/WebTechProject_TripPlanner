@@ -29,16 +29,29 @@
                  </ul>
             </div>
             <div class="right-box">
-                <div class="tabs">
-                    <button class="tab-button active" data-tab="bookings">Bookings</button>
-                    <button class="tab-button" data-tab="weather">Weather</button>
-                    <button class="tab-button " data-tab="currency">Currency</button>
-                </div>
-                <div class="tab-content" id="bookings">
-                    <iframe id="myPdf" src="../graphics/barcelonaBooking.pdf" frameborder="0"></iframe>
-
-                </div>
-            
+                <div class="mytabs">
+                    <input type="radio" id="tabBookings" name="mytabs" checked="checked">
+                    <label for="tabBookings">Bookings</label>
+                    <div class="tab">
+                      <h2>Booking</h2>
+                      <iframe id="myPdf" src="../graphics/barcelonaBooking.pdf" frameborder="0"></iframe>
+                      </div>
+                
+                    <input type="radio" id="tabWeather" name="mytabs">
+                    <label for="tabWeather">Silver</label>
+                    <div class="tab">
+                      <h2>Weather</h2>
+                      
+                    </div>
+                
+                    <input type="radio" id="tabCurrency" name="mytabs">
+                    <label for="tabCurrency">Currency</label>
+                    <div class="tab">
+                      <h2>Weather</h2>
+                      </div>
+                
+                  </div>
+             
             </div>
     </div>
 </div>
