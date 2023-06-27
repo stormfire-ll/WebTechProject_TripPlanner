@@ -137,13 +137,15 @@ column-gap: 20px;
 .right-box{
     width: 1200px;
     height: auto;
-    background-color: #fff;
     color: #539fe3;
-    padding: 20px;
+   background-color: #607c94;
     border-radius: 10px;
     border: 2px solid #539fe3;
     float:left;
+    background: linear-gradient(135 deg, #539fe3, #607c94);
 }
+
+
 .myPdf{
     width: 200px;
     height: 160px;
@@ -151,10 +153,10 @@ column-gap: 20px;
 .mytabs {
     display: flex;
     flex-wrap: wrap;
-    max-width: 400px;
-    margin: 20px auto;
+    width: 800px;
+    height:450px;
+    margin: 20px ;
     padding: 0px;
-   
 }
 .mytabs input[type="radio"] {
     display: none;
@@ -167,9 +169,9 @@ column-gap: 20px;
 }
 
 .mytabs .tab {
-    width: 70%;
+    width: 90%;
     padding: 8px;
-    background: #fff;
+    background: none;
     order: 1;
     display: none;
 }
@@ -183,4 +185,48 @@ column-gap: 20px;
 
 .mytabs input[type="radio"]:checked + label {
     background: #fff;
+}
+.weather input[value='GetWeather']{
+        border: none;
+        outline: none;
+        height: 40px;
+        width: 130px;
+        background: #539fe3;
+        color: #fff;
+        font-size: 14px;
+        border-radius: 20px;
+
+}
+
+.weather input[value='GetWeather']:hover{
+    cursor:pointer;
+    background: #a358b2;
+    color:#000;
+}
+.weather input[type='search']{
+        border: 0;
+        outline: 0;
+        background: #fff;
+        color: #539fe3;
+        padding: 8px 12px;
+        height: 20px;
+        border-radius: 25px;
+        font-size: 14px;
+        font-weight: bold;
+    
+    
+}
+
+.popup-box {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  width: 200px;
+  height: 100px;
+  padding: 10px;
+  border: 2px solid #539fe3;
+  border-radius: 10px;
 }
