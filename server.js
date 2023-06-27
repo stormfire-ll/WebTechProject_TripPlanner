@@ -71,6 +71,8 @@ app.post('/login', async (req, res) => {
 
    let users = await User.getUsersData();
    let user = users.find(u => u.email === email);
+   console.log(users);
+   console.log(email);
 
    if (!user) {
        return res.redirect('/login');
