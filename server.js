@@ -1,7 +1,9 @@
+const http = require('http') 
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const app = express();
 const path = require('path');
+const fs = require("fs");
 const axios = require('axios')
 const session = require('express-session');
 const User = require('./models/User');
@@ -13,6 +15,20 @@ const FileStore = require('session-file-store')(session);
 
 // Serve static views from the "public" directory
 app.use(express.static(path.join(__dirname, '/public')));
+
+//Server initialize index.html
+const server = http.createServer(async function(req, res){      //callback function
+    res.writeHead(200, { 'Content-type': 'text/html' })         //set response header
+    fs.readFile('./public/html/index.html', function(error, data){            //callback function
+        if (error) {
+            res.writeHead(404)
+            res.write('Error: File Not Found')
+        } else {
+            res.write(data)
+        }
+        res.end()
+    }) 
+})
 
 //Login Session
 app.use(cookieParser('some key'));
@@ -157,7 +173,13 @@ app.get("/currencyconverter", async (req, res) => {
        .catch((error) => console.error("Fetch currency API data error:", error));
  });
 
-// Start the server
-app.listen(3000);
-console.log('Server is running on http://localhost:3000');
-
+// Server listens on port 3000
+const port = 3000;
+server.listen(port, function(error) { //function called if error: pass error or nothing if successful
+    if (error) {
+        console.log('Server cannot listening on port', error) //!no log
+    } else {
+        console.log(`Server running on http://localhost:${port}`)
+        
+    }
+})
